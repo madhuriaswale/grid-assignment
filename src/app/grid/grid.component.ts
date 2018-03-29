@@ -10,12 +10,21 @@ export class GridComponent {
   public gridData:any[] = [];
   public jsonRes;
   public newRecord;
+  showAddRowForm: boolean = false;
   
   constructor() { }
 
-  addRow(data: any){
+  getRowData(data: any){
     let gridObj = data;
     this.gridData.push(gridObj);
+  }
+
+  showAddForm() {
+    this.showAddRowForm = true;
+  }
+
+  cancelAddForm(status: boolean) {
+    this.showAddRowForm = false;
   }
 
 
@@ -25,7 +34,6 @@ export class GridComponent {
 
   getVal(val,arrIndex,fieldName) {
     this.gridData.map(function(item,index) {
-      console.log(index);
       if(index == arrIndex) {
         item[fieldName] = val.innerHTML;
       }
@@ -33,9 +41,9 @@ export class GridComponent {
   }
 
   getJSONData() {
-    console.log(this.gridData);
-    console.log(JSON.stringify(this.gridData));
-    this.jsonRes = this.gridData;
+    if(this.gridData.length){
+      this.jsonRes = JSON.stringify(this.gridData);
+    }
   }
 
  

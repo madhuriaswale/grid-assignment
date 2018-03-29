@@ -1,4 +1,7 @@
-<form class="form-style" #userForm="ngForm" (ngSubmit)="saveData(userForm.value);">
+<div class="form-container">
+<form class="form-style" #userForm="ngForm" (ngSubmit)="saveData(userForm.value);"
+  *ngIf="showForm"
+>
   <h3>Add Row</h3>
   <div class="form-group">
         <label for="firstName">FirstName</label>
@@ -17,4 +20,9 @@
     <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" ngModel>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="button" class="btn btn-danger"
+   (click)="cancelForm()">
+    Cancel
+  </button>
 </form>
+</div>

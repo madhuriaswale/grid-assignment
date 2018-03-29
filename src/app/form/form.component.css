@@ -1,6 +1,9 @@
 .form-style{
-    margin:10px;
-    max-width: 400px;
+    margin:10px auto;
+    max-width: 600px;
     padding: 20px 12px 10px 20px;
     font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+.form-container{
+    background: rgba(0,0,0,0.4);
 }
