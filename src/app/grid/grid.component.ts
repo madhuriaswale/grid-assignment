@@ -1,16 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-grid',
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.css']
 })
-export class GridComponent implements OnInit {
+export class GridComponent {
   public gridData:any[] = [];
+  public jsonRes;
   constructor() { }
-
-  ngOnInit() {
-  }
 
   addRow(){
     let gridObj = {
@@ -24,6 +22,25 @@ export class GridComponent implements OnInit {
 
   removeRecord(index){
     this.gridData.splice(index,1);    
+  }
+
+  getVal(val,arrIndex,fieldName) {
+    this.gridData.map(function(item,index) {
+      console.log(index);
+      if(index == arrIndex) {
+        item[fieldName] = val.innerHTML;
+      }
+    })
+  }
+
+  saveEditedVal(value) {
+
+  }
+
+  getJSONData() {
+    console.log(this.gridData);
+    console.log(JSON.stringify(this.gridData));
+    this.jsonRes = this.gridData;
   }
 
 }

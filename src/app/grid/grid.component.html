@@ -10,14 +10,26 @@
   </thead>
   <tbody>
     <tr *ngFor="let data of gridData;let i=index">
-      <td>{{data.firstName}}</td>
-      <td>{{data.lastName}}</td>
-      <td>{{data.email}}</td>
-      <td>{{data.phone}}</td>
+      <td><span contenteditable="true" (blur)="getVal(fNameRef,i,'firstName')" #fNameRef>{{data.firstName}}</span></td>
+      <td><span contenteditable="true" (blur)="getVal(lNameRef,i,'lastName')" #lNameRef>{{data.lastName}}</span></td>
+      <td><span contenteditable="true" (blur)="getVal(emailRef,i,'email')" #emailRef>{{data.email}}</span></td>
+      <td><span contenteditable="true" (blur)="getVal(phoneRef,i,'phone')" #phoneRef>{{data.phone}}</span></td>
       <td><span class="glyphicon glyphicon-remove" (click)="removeRecord(i);">X</span></td>
     </tr>
   </tbody>
 </table>
 <div>
     <button type="button" class="btn btn-primary" (click)="addRow();">Add Row</button>
+    <button type="button" class="btn btn-primary pull-right" (click)="getJSONData();">Submit</button>
 </div>
+
+<div class="mt-5">
+  <pre>
+  {{ jsonRes | json }}
+  </pre>
+</div>
+
+<!-- <add-form
+ (saveData)='onSaveData($event)'
+ >
+</add-form> -->
