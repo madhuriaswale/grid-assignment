@@ -1,0 +1,23 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">FirstName</th>
+      <th scope="col">LastName</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of gridData;let i=index">
+      <td>{{data.firstName}}</td>
+      <td>{{data.lastName}}</td>
+      <td>{{data.email}}</td>
+      <td>{{data.phone}}</td>
+      <td><span class="glyphicon glyphicon-remove" (click)="removeRecord(i);">X</span></td>
+    </tr>
+  </tbody>
+</table>
+<div>
+    <button type="button" class="btn btn-primary" (click)="addRow();">Add Row</button>
+</div>
