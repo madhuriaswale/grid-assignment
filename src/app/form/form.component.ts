@@ -13,11 +13,18 @@ export class FormComponent {
   @Output() userData : EventEmitter<any> = new EventEmitter<any>();
   @Output() cancelAddForm : EventEmitter<any> = new EventEmitter<any>();
 
+  /**
+   * Method to get form data on submit
+   * @param user
+   */
   saveData(user:any){
     this.userData.emit(user);
     this.showFormRef.reset();
   }
 
+  /**
+   * Method to hide the form
+   */
   cancelForm() {
     this.cancelAddForm.emit(false);
   }
