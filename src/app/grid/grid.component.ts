@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FormComponent } from '../form/form.component';
 
 @Component({
   selector: 'app-grid',
@@ -8,17 +9,15 @@ import { Component } from '@angular/core';
 export class GridComponent {
   public gridData:any[] = [];
   public jsonRes;
+  public newRecord;
+  
   constructor() { }
 
-  addRow(){
-    let gridObj = {
-      firstName : "Madhuri",
-      lastName : "Aswale",
-      email: "madhuri.aswale10@gmail.com",
-      phone : "123456789"
-    };
+  addRow(data: any){
+    let gridObj = data;
     this.gridData.push(gridObj);
   }
+
 
   removeRecord(index){
     this.gridData.splice(index,1);    
@@ -33,14 +32,11 @@ export class GridComponent {
     })
   }
 
-  saveEditedVal(value) {
-
-  }
-
   getJSONData() {
     console.log(this.gridData);
     console.log(JSON.stringify(this.gridData));
     this.jsonRes = this.gridData;
   }
 
+ 
 }
